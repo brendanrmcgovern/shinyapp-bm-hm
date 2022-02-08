@@ -6,38 +6,39 @@ library(tidyverse)
 # create the user interface
 ui <- fluidPage(theme = "tahoe.css",
                 navbarPage(
-                  "Our app title - Blue Forest Conservation",
+                  "Visualizing Ecosystem Services of Interest in the Tahoe-Central Sierra Region - Blue Forest Conservation",
                   tabPanel("Ecosystem benefits",
                            sidebarLayout(
                              sidebarPanel(
-                               "WIDGET 1",
-                               checkboxGroupInput(inputId = "ecosystem_service",
-                                                  label = "Select ecosystem service:",
-                                                  choices = unique(data$)
+                               "WIDGETS GO HERE",
+                               checkboxGroupInput(inputId = "pick_species",
+                                                  label = "Choose species:",
+                                                  choices = unique(starwars$species)
                                                   ) # end checkboxGroupInput
                              ), #end of sidebarPanel
-                             mainPanel(
+                              mainPanel(
                                "OUTPUT MAP GOES HERE",
-                               plotOutput("eco_ben_map")
+                               plotOutput("sw_plot")
                              ) #end of mainPanel
-                           ) #end of sidebarLayout
-                           ),
-                  tabPanel("Risks to ecosystem services"),
-                  tabPanel("Priority areas")
-                ) #end of navbarPage
-                ) #end ui
+                          ) #end of sidebarLayout
+                          ), #end of tabPanel thing 1
+    tabPanel("Risks to ecosystem services"),
+    tabPanel("Priority Management Areas")
+  ) #end of navbarPage
+) #end ui
 
 
 # create server function
 server <- function(input, output) {
-  eco_ben_reactive <- reactive({
-    data %>% 
-      filter()
-  }) #end sw_reactive
+  sw_reactive <- reactive({
+    starwars %>% 
+      filter(species %in% input$pick_species)
+  }) # end sw_reactive
   
-  output$eco_ben_reactive <- renderPlot(
-    
-  )
+  output$sw_plot <- renderPlot(
+    ggplot(data = sw_reactive(), aes(x = mass, y = height)) +
+      geom_point(aes(color = species))
+    ) #end output$plot
 }
 
 # combine into an app:
