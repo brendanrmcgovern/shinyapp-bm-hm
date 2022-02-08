@@ -17,7 +17,9 @@ ui <- fluidPage(theme = "tahoe.css",
                                                   ) # end checkboxGroupInput
                              ), #end of sidebarPanel
                               mainPanel(
-                               "OUTPUT MAP GOES HERE",
+                               "The Tahoe-Central Sierra region is a diverse landscape that covers approximately 2.4 million acres of land, multiple National Forests, Wildernesses, cities and cities. The region is rich in diversity, but under threat from climate change impacts. This study sought to determine specific stakeholder interest in various ecosystem services to better prioritize how to protect these services under changing climate and future management scenarios...
+                               OUTPUT MAP GOES HERE with a description of how participants were asked to identify regions of interest within our study region
+                               NEED TO FIGURE OUT HOW TO INSERT MAP AND PLOT SHAPEFILES OF STUDY REGION HERE",
                                plotOutput("sw_plot")
                              ) #end of mainPanel
                           ) #end of sidebarLayout
