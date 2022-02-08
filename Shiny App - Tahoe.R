@@ -22,7 +22,8 @@ ui <- fluidPage(theme = "tahoe.css",
                              ) #end of mainPanel
                           ) #end of sidebarLayout
                           ), #end of tabPanel thing 1
-    tabPanel("Risks to ecosystem services"),
+    tabPanel("Impacts/Risks to ecosystem services"),
+    tabPanel("Threats to ecosystem services"),
     tabPanel("Priority Management Areas")
   ) #end of navbarPage
 ) #end ui
